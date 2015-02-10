@@ -15,7 +15,7 @@ defmodule ExNexmo.Mixfile do
   # Type `mix help compile.app` for more information
   def application do
     [ mod: { ExNexmo, [] },
-      applications: []
+      applications: [:httpoison]
     ]
   end
 
@@ -41,10 +41,12 @@ defmodule ExNexmo.Mixfile do
       links: %{"Github" => "https://github.com/adamrobbie/exnexmo"}
     ]
   end
+  
   defp deps do
     [ 
-      {:ibrowse, github: "cmullaparthi/ibrowse", tag: "v4.1.1"},
-      {:httpotion, "~> 2.0.0"},
-      {:poison, "~> 1.3"}]
+      {:httpoison, "~> 0.3" },
+      {:hackney, "~> 0.13.1" },
+      {:poison, "~> 1.3"},
+      {:mock, "~> 0.1.0", only: :test}]
   end
 end
